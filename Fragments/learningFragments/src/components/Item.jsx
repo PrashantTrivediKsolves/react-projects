@@ -1,5 +1,5 @@
 import styles from "./Item.module.css";
-const Item = ({ foodItem, handleBuyButton }) => {
+const Item = ({ foodItem, handleBuyButton, bought }) => {
   console.log(styles);
 
   const handleBuyButtonClicked = (event) => {
@@ -7,7 +7,10 @@ const Item = ({ foodItem, handleBuyButton }) => {
     alert(`${foodItem} being  bought`);
   };
   return (
-    <li key={foodItem} className={`${styles["kg-item"]} list-group-item `}>
+    <li
+      key={foodItem}
+      className={`${styles["kg-item"]} list-group-item ${bought && "active"}`}
+    >
       <span className={styles["kg-span"]}>{foodItem}</span>
       <button
         className={`${styles.button} btn btn-info`}
