@@ -30,10 +30,12 @@ function App() {
 
   const handleNewItem = (itemName, itemDueDate) => {
     console.log(`New Item Added: ${itemName} Date:${itemDueDate}`);
-    let newItems = [...todo_items, { name: itemName, birth: itemDueDate }];
-    setTodoItems(newItems);
+    // this is functional update....
+    setTodoItems((currentValue) => {
+      let newItems = [...currentValue, { name: itemName, birth: itemDueDate }];
+      return newItems;
+    });
   };
-
   const handleDeleteItem = (todoItemName) => {
     console.log(`Item Deleted:${todoItemName}`);
     const newTodoItem = todo_items.filter((item) => {
